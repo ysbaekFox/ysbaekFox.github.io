@@ -55,3 +55,8 @@ elseif(CMAKE_SYSTEM_NAME MATCHES "Android")
     # do something
 endif()
 ```
+
+#### Reference 
+***
+- https://gitlab.kitware.com/cmake/community/-/wikis/doc/tutorials/How-To-Write-Platform-Checks#platform-checking
+- https://gitlab.kitware.com/cmake/community/-/wikis/doc/tutorials/How-To-Write-Platform-Checks#cmake-system
