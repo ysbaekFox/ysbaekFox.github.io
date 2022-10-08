@@ -1,7 +1,7 @@
 ---
 published: true
 layout: single
-title: "[CMake] CMake Platform 구분하는 법
+title: "[CMake] CMake Platform 구분하는 법"
 category: cmake
 tags:
 comments: true
