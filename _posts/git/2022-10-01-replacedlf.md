@@ -8,6 +8,7 @@ comments: true
 sidebar:
   nav: "mainMenu"
 ---  
+* * *
 
 유닉스 시스템에서는 한 줄의 끝이 LF(Line Feed)로 이루어지는 반면, 
 Window에서는 줄 하나가 CR(Carriage Return)와 LF(Line Feed), 즉 CRLF로 이루어지기 때문에 발생.
