@@ -19,8 +19,8 @@ mainMenu:
         url: /categories/qt
     - title: Python
       children:
-      # - title: "Effective Python 2nd"
-      #   url: /categories/effectivepy
+      - title: "Effective Python 2nd"
+        url: /categories/effectivepy
     # - title: Machine Learning
     #   children:
     #     - title: "Basic"
@@ -40,6 +40,8 @@ mainMenu:
     #   children:
     #     - title: "Data Structure"
     #       url: /categories/datastructure
-    # - title: Seminar
-    #   url: /categories/seminar
+    - title: Conference
+      children:
+      - title: "CppCon"
+        url: /categories/cppcon
         
