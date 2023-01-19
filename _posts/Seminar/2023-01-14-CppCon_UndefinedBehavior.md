@@ -14,8 +14,7 @@ sidebar:
 
 Undefined Behavior는 Compiler에 정의되지 않은 동작으로서 프로그램이 어떻게 동작할지 알 수 없는 것을 의미합니다.
 
-우리는 Undefined Behavior에 대해 충분히 이해하고 있다고 생각합니다.
-(Access Null Pointer, Uninitialized Variables, Index Out of Bound, return 누락 등)
+우리는 Undefined Behavior에 대해 충분히 이해하고 있다고 생각합니다.(실상은 그렇지 않지만요.)
 
 또한, Undefined Behavior로 인한 Bug를 경험해 보았을 것이고
 알 수 없는 Bug의 원인을 찾기 위해 반복적인 Test와 디버깅, Code Review로 고생해본 경험이 있을 것 입니다.
@@ -36,7 +35,7 @@ Undefined Behavior에 대한 흔한 오해들이 있습니다.
 - Undefined Behavior를 디버깅하는 것은 약간의 연습만으로 충분하다.
 - 좋은 테스트(단위 테스트 ~ 통합 테스트)는 Undefined Behavior를 잡아낼 수 있다.
 - C++ Standard Committee은 Undefined Behavior를 C++에서 제거하기 위해 노력하고 있다.
-- 더 나은 컴파일러는 Undefined Behavior을 오류로 보고한다.
+- 성능이 좋은 컴파일러는 Undefined Behavior을 오류로 보고한다.
 - 경험이 많은 숙련된 개발자는 Undefined Behavior Code를 만들지 않는다.
   
 위의 목록은 모두 우리가 잘못알고 있는 것들 입니다. 언뜻 보면 동의할 수 있는 말들도 있어 보이지만 모두 사실이 아닙니다.
@@ -72,7 +71,7 @@ Undefined Behavior에 대한 흔한 오해들이 있습니다.
 
 C++ 표준 위원회에서는 올바른 C++ 프로그램에는 Undefined Behavior가 없어야 한다고 말합니다.
 그래서 컴파일러들은 최적화하는 과정에서 Undefined Behavior가 없다는 것을 가정하고 동작하고 있습니다.
-그로인해 컴파일러가 코드를 최적화하는 과정에서 예기치 않은 동작들이 발생하는 것입니다.
+그로인해 컴파일러가 코드를 번역 및 최적화하는 과정에서 예기치 않은 동작들이 발생하는 것입니다.
 
 또한 C++에는 다양한 Behavior들이 있는데 어떤 종류가 있는지 숙지할 필요가 있습니다.
 왜냐하면, Undefined Behavior인 것과 아닌 것을 구분할 필요가 있기 때문입니다.
@@ -109,7 +108,7 @@ C++ 표준 위원회에서는 올바른 C++ 프로그램에는 Undefined Behavio
   4
   4
 
-  // GCC 9.3.0
+  // GCC 9.3.0 (WSL Ubuntu)
   4
   8
   sizeof(int) < sizeof(long)
@@ -119,24 +118,16 @@ C++ 표준 위원회에서는 올바른 C++ 프로그램에는 Undefined Behavio
 **Unspecified Behavior**
 - 코드가 여러가지 의미로 해석 될 수 있음.
 - 컴파일러는 그 중 무작위로 아무 동작이나 해도 됨 (문서화 X)
+- Undefined Behavior의 한 종류
+- 단 아래 동작은 C++17 이후부터는 동일하게 판단하는 것이 표준
 
   ```c++
-  char* a1 = "abc";
-  char* a2 = "abc";
-  std::cout << &a1 << ", " << &a2 << std::endl;
-  
-  if ("abc" == "abc")
+  const char* str1 = "hello";
+  const char* str2 = "hello";
+  if ( "str1" == "str2" )
   { 
-      std::cout << "abc == abc" << std::endl;
-  }
-  ```
-  ```c++
-  // MSVC (VS2019)
-  0000009A72D5F618, 0000009A72D5F638
-
-  // GCC 9.3.0
-  0x7ffc42c3d8f8, 0x7ffc42c3d900
-  abc == abc
+      std::cout << "str1 == str2" << std::endl;
+  }    
   ```
 <br>
 
@@ -353,7 +344,7 @@ C++ 표준 위원회는 매우 특수한 경우를 제외하고는 Undefined Beh
 - 결과가 표현 가능한 값의 범위를 벗어나는 경우, "signed integer overflow"가 발생하고 Undefined Behavior 입니다.
 
 부호 없는 정수 산술
-- 표준에 따르면 이 작업은 절대 오버플로되지 않습니다.
+- 표준에 따르면 이 작업은 오버플로우가 되지만 정의된 동작 입니다. (예를 들어 255 -> 0이 된다고 표준에 정의되어 있음)
 
 ```c++
 int volume( int length )
@@ -368,7 +359,7 @@ int volume( int length )
 #### Example 5
 * * *
 
-고해성사를 하자면, 저는 실제로 이러한 Undefined Behavior를 발생시킨적이 있습니다. 
+고해성사를 하자면, 저는 실제로 Example 5와 같은 Undefined Behavior를 발생시킨적이 있습니다.
 저는 단순히 Crash가 발생하여서 문제를 쉽게 찾을 수 있었지만 단순히 Crash 발생으로 끝나지 않는 경우도 있는 것 같습니다.
 
 그것은 **반환형이 있는 함수에서 반환문을 누락**하는 경우 입니다.
@@ -384,7 +375,7 @@ int volume( int length )
 
 ```c++
 bool monthOfCppCon21() {
- someData == “October”;
+ someData == “October”; 
 }
 ```
   
@@ -398,8 +389,8 @@ operator[]는 문자열의 index에 대한 참조를 반환합니다.
 루프가 문자열 끝에 도달하면 어떻게 될까요?
 
 ```c++
-QString inputStr = "class std::vector<int>";
-QString result;
+std::string inputStr = "class std::vector<int>";
+std::string result;
 for (int index = 0; index < inputStr.size(); ++index) {
     if (inputStr[index+1] == ':' && inputStr[index+2] == ':') {
         index += 2;
@@ -463,14 +454,14 @@ void doThing8(const std::string & input) {
 우리는 Undefined Behavior를 테스트하는 것에 대해 이야기해보도록 하겠습니다.
   
 "나는 나의 코드에 Undefined Behavior가 어디에 있는지 알고 있어"라는 개발자가 있었습니다.
-그는 말했습니다. "나의 모든 코드 Undefined Behavior가 있지만 모든 유닛테스트에 문제 없이 동작하고 나의 통제하이 있다."
+그는 말했습니다. "나의 모든 코드 Undefined Behavior가 있지만 모든 유닛테스트에 문제 없이 동작하고 나의 통제하에 있다."
   
 그런데 왠 걸? 코드에서 Undefined Behavior를 제거하는 순간 오히려 유닛테스트가 실패하는 것 입니다.
   
 이러한 경우 어떻게 해야할까요?
 
 **Description**
-- 개발자가 코드 베이스에서 정의되지 않은 동작을 발견했습니다.
+- 개발자가 코드에서 정의되지 않은 동작을 발견했습니다.
 - 그러나 모든 단위 테스트를 통과했습니다.
 - 응용 프로그램에서 정의되지 않은 동작을 제거했습니다.
 - 이제는 오히려 일부 단위 테스트가 실패함을 확인했습니다.
@@ -481,7 +472,7 @@ void doThing8(const std::string & input) {
 
 **Solution**
 - Undefined Behavior를 코드에 다시 넣고 모든 유닛 테스트는 통과시키기
-- flaky (약속을 잘 나타나지 않아 신뢰하기 어려운 라는 Slang 표현)라고 표시해두고 일단 덮어두기
+- flaky (약속을 잘 지키지 않아 신뢰하기 어려운 라는 Slang 표현)라고 표시해두고 일단 덮어두기
   
 위의 2개는 끔찍한 아이디어들입니다.
 반면에 근본적인 원인을 찾기 위해 시도하는 아래의 방안들은 좋은 아이디어들입니다.
