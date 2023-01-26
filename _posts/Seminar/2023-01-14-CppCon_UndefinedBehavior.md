@@ -138,7 +138,7 @@ C++ 표준 위원회에서는 올바른 C++ 프로그램에는 Undefined Behavio
 # Example Codes
 * * *
 
-Undefined Behavior 유발하는 코드를 보면서 어디서 발생하는지 찾고 그 원인이 무엇인지 한번 알아보겠습니다.
+Undefined Behavior가 포함된 코드를 보면서 어디가 Undefined Behavior인지 찾아보도록 .
 
 #### Example 1
 * * *
