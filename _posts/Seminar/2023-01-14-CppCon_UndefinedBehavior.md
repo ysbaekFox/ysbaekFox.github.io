@@ -120,8 +120,6 @@ C++ 표준 위원회에서는 올바른 C++ 프로그램에는 Undefined Behavio
 - 컴파일러는 그 중 무작위로 아무 동작이나 해도 됨 (문서화 X)
 - Undefined Behavior보다는 안전함.
   ```c++
-  const char* str1 = "hello";
-  const char* str2 = "hello";
   // 단 아래 동작은 C++17 이후부터는 동일하게 판단하는 것이 표준
   if ( "str1" == "str2" )
   { 
