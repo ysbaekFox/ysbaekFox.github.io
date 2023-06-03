@@ -1,11 +1,11 @@
 ---
-title: "C++ Reference"
+title: "Kafka"
 layout: archive
-permalink: /categories/cppreference
+permalink: /categories/kafka
 author_profile: false
 sidebar:
   nav: "mainMenu"
 ---
 
-{% assign posts = site.categories.cppreference %}
+{% assign posts = site.categories.boj %}
 {% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}

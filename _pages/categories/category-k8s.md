@@ -1,11 +1,11 @@
 ---
-title: "Boost Library"
+title: "Kubernetes"
 layout: archive
-permalink: /categories/boost
+permalink: /categories/k8s
 author_profile: false
 sidebar:
   nav: "mainMenu"
 ---
 
-{% assign posts = site.categories.Boost %}
+{% assign posts = site.categories.k8s %}
 {% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}
