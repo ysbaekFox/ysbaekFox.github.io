@@ -1,22 +1,16 @@
 main:
-    - title: "Career"
-      url: "/Career/"
+    #- title: "Career"
+    #  url: "/Career/"
   
 mainMenu:
     - title: C++
       children:
-      - title: "Boost"
-        url: /categories/boost
       - title: "Effective C++ Programming"
         url: /categories/effectcpp
       - title: "MODERN C++ Design Pattern"
         url: /categories/designpattern
-      - title: "C++ Reference"
-        url: /categories/cppreference
       - title: "CMake"
         url: /categories/cmake
-      - title: "QT"
-        url: /categories/qt
     - title: Python
       children:
       - title: "Effective Python 2nd"
@@ -40,6 +34,12 @@ mainMenu:
     #   children:
     #     - title: "Data Structure"
     #       url: /categories/datastructure
+    - title: Data Engineering
+      children:
+      - title: Kubernetes
+        url: /categories/k8s
+      - title: Kafka
+        url: /categories/kafka
     - title: Conference
       children:
       - title: "CppCon"
