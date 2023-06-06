@@ -2,21 +2,71 @@
 layout: archive
 ---
 
-{{ content }}
-
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
-
-{% if paginator %}
-  {% assign posts = paginator.posts %}
-{% else %}
-  {% assign posts = site.posts %}
-{% endif %}
-
-{% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
-  {% for post in posts %}
-    {% include archive-single.html type=entries_layout %}
-  {% endfor %}
-</div>
-
-{% include paginator.html %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yunsik Baek - Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Yunsik.Baek</h1>
+  
+  <div class="section">
+    <h2 class="section-title">About Me</h2>
+    <p>
+      Hello! My name is Yunsik Baek (백윤식) and I'm a software developer based in Busan. 
+      I have experience in C++, CMake, Python, and other technologies, passionate about creating efficient and scalable software solutions.
+    </p>
+  </div>
+  
+  <div class="section">
+    <h2 class="section-title">Work Experience</h2>
+    <h3>Navis-Automotive System</h3>
+    <p>Software Developer | 2018 - Present</p>
+    <ul>
+      <li>Developed and maintained C++ applications for automotive systems.</li>
+      <li>Experience debugging in a sandboxed embedded environment.</li>
+      <li>Collaborated with cross-functional teams to deliver high-quality software solutions.</li>
+      <li>Ported applications from Yocto Linux to Android and iOS platforms.</li>
+      <li>Working with the automobile manufacturing companies such as Daimler(Mercedes-Benz) and BMW, etc.</li>
+    </ul>
+  </div>
+  
+  <div class="section">
+    <h2 class="section-title">Skills</h2>
+    <ul>
+      <li>C++, Python, CMake, Linux</li>
+      <li>Version Control (Git, SVN)</li>
+      <li>Framework (gRPC, Thrift, CommonAPI)</li>
+      <li>Software Testing (Google Test)</li>
+    </ul>
+  </div>
+  
+  <div class="section">
+    <h2 class="section-title">Contact</h2>
+    <p>E-mail: ysbaekFox@gmail.com</p>
+  </div>
+</body>
+</html>
