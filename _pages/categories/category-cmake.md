@@ -2,7 +2,7 @@
 title: "CMake"
 layout: archive
 permalink: /categories/cmake
-author_profile: false
+author_profile: true
 sidebar:
   nav: "mainMenu"
 ---

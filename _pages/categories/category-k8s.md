@@ -2,7 +2,7 @@
 title: "Kubernetes"
 layout: archive
 permalink: /categories/k8s
-author_profile: false
+author_profile: true
 sidebar:
   nav: "mainMenu"
 ---

@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "default" # "default" "air", "aqua", "contrast", "dar
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Matthew's Story"
+title                    : "백윤식 개발 일지"
 title_separator          : "-"
 subtitle                 : ""
 name                     :
@@ -94,11 +94,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "YunSik.Baek"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
-  email            :
+  bio              : "Hello there! At here, we share various insights and knowledge about C++,CMake,Data Engineering, etc "
+  location         : "Busan, Republic of Korea"
+  email            : ysbaekFox@gmail.com
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -278,7 +278,7 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: false
+      author_profile: true
       read_time: false
       # comments: true
       share: true

@@ -1,11 +1,11 @@
 ---
-title: "Kaggle"
+title: "gRPC"
 layout: archive
-permalink: /categories/mlkaggle
-author_profile: false
+permalink: /categories/grpc
+author_profile: true
 sidebar:
   nav: "mainMenu"
 ---
 
-{% assign posts = site.categories.mlkaggle %}
+{% assign posts = site.categories.grpc %}
 {% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}

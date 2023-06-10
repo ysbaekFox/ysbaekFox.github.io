@@ -2,7 +2,7 @@
 title: "Effective Python 2nd"
 layout: archive
 permalink: /categories/effectivepy
-author_profile: false
+author_profile: true
 sidebar:
   nav: "mainMenu"
 ---

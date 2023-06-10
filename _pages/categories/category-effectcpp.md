@@ -2,7 +2,7 @@
 title: "Effective C++ Programming"
 layout: archive
 permalink: /categories/effectcpp
-author_profile: false
+author_profile: true
 sidebar:
   nav: "mainMenu"
 ---

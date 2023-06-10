@@ -2,7 +2,7 @@
 title: "Kafka"
 layout: archive
 permalink: /categories/kafka
-author_profile: false
+author_profile: true
 sidebar:
   nav: "mainMenu"
 ---
