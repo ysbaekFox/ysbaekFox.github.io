@@ -17,6 +17,8 @@ mainMenu:
       children:
       - title: Kubernetes
         url: /categories/k8s
+      - title: Airflow
+        url: /categories/airflow
       - title: Kafka
         url: /categories/kafka
     - title: Conference
@@ -27,4 +29,6 @@ mainMenu:
       children:
       - title: gRPC
         url: /categories/grpc
+      - title: Django
+        url: /categories/django
         
