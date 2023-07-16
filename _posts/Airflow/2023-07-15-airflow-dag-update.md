@@ -43,21 +43,38 @@ kubectl create secret generic airflow-ssh-secret \
 <div markdown="1">
 
 ```
+# Git sync
+dags:
+  persistence:
+    # Annotations for dags PVC
+    annotations: {}
+    # Enable persistent volume for storing dags
+    enabled: false
+    # Volume size for dags
+    size: 1Gi
+    # If using a custom storageClass, pass name here
+    storageClassName:
+    # access mode of the persistent volume
+    accessMode: ReadWriteOnce
+    ## the name of an existing PVC to use
+    existingClaim:
+    ## optional subpath for dag volume mount
+    subPath: ~
   gitSync:
     enabled: true
 
     # git repo clone url
     # ssh example: git@github.com:apache/airflow.git
     # https example: https://github.com/apache/airflow.git
-    repo: git@github.com:{your-id}/{repo-name}.git
-    branch: main
+    repo: git@github.com:{your-id}}/{your-repo}.git
+    branch: {branch-name}
     rev: HEAD
     depth: 1
     # the number of consecutive failures allowed before aborting
-    maxFailures: 0
+    maxFailures: 10 # 이 값 바꾸지 않으면, airflow-triggerer-0 / airflow-scheduler가 restart 됨.
     # subpath within the repo where dags are located
     # should be "" if dags are at repo root
-    subPath: ""
+    subPath: "dags/"
     # if your repo needs a user name password
     # you can load them to a k8s secret like the one below
     #   ---
@@ -70,7 +87,7 @@ kubectl create secret generic airflow-ssh-secret \
     #     GIT_SYNC_PASSWORD: <base64_encoded_git_password>
     # and specify the name of the secret below
     #
-    credentialsSecret: git-credentials
+    # credentialsSecret: git-credentials
     #
     #
     # If you are using an ssh clone url, you can load
