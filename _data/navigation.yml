@@ -7,28 +7,37 @@ mainMenu:
       children:
       - title: "Effective C++ Programming"
         url: /categories/effectcpp
+        category: effectcpp
       - title: "CMake"
         url: /categories/cmake
+        category: cmake
     - title: Python
       children:
       - title: "Effective Python 2nd"
         url: /categories/effectivepy
+        category: effectivepy
     - title: Data Engineering
       children:
       - title: Kubernetes
         url: /categories/k8s
+        category: k8s
       - title: Airflow
         url: /categories/airflow
+        category: airflow
       - title: Kafka
         url: /categories/kafka
+        category: kafka
     - title: Conference
       children:
       - title: "CppCon"
         url: /categories/cppcon
+        category: cppcon
     - title: Framework
       children:
       - title: gRPC
         url: /categories/grpc
+        category: grpc
       - title: Django
         url: /categories/django
+        category: django
         
