@@ -104,8 +104,10 @@ worker-2의 pv4 경로에 정상 다운로드 된 것 확인할 수 있습니다
 
 ![image](https://github.com/ysbaekFox/ysbaekFox.github.io/assets/54944434/a5ef1afd-f8b5-4500-87b4-3588ee341a60)
 
-마지막으로 이 문제를 해결할 때 내가 설장한 셋팅이 정상적으로 반영이 되었는지 확인하기 위해 제가 사용한 방법(팁?)을 알려드리겠습니다. 
+마지막으로 이 문제를 해결할 때 제가 설정한 셋팅이 정상적으로 반영이 되었는지 확인하기 위해 제가 사용한 방법(팁?)을 알려드리겠습니다. 
 바로 스케쥴 Pod에 접속해서 Pod Template yaml 파일을 확인하는 것이 도움이 많이 되었습니다.
+  
+아마도 제가 설정한 parameter를 기반으로 pod template yaml 파일이 자동으로 생성되는 것 같았습니다.
   
 예를 들어서 AirFlow Update를 수행하고나서 모든 파드에 문제가 없을 때, 
 kubectl exec 명령어를 통해 schedule pod에 접속해서 Pod template yaml 파일을 확인하면, 제가 설정한 log.persistence나 extra volume이 설정되어있는 것을 확인할 수 있었습니다.
