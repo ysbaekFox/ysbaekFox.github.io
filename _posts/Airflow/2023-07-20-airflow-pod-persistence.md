@@ -19,9 +19,12 @@ KubernetesExecutor를 적용한 후에 각 Task가 실행될 때마다 새로운
 ```
   
 고민을 좀 해본 결과, 해당 Pod들은 Empty Volume이 Default 설정이어서 Pod가 매번 생성되고 삭제될 때마다 로그를 포함한 모든 Data가 삭제되는 문제가 아닐까?하고 생각했습니다.
-  
-검색을 좀 해보니 logs.persistence.enabled / logs.persistence.existingClaim이라는 셋팅이 있었습니다. 해당 PVC를 바인딩 시킨 후, 
-파라미터를 적용하여 helm chart를 업그레이드 해주니 log가 정상적으료 표시되는 것을 확인할 수 있었습니다.
+
+레퍼런스 페이지를 확인 해보니 logs.persistence.enabled / logs.persistence.existingClaim이라는 셋팅이 있었습니다. 해당 PVC를 바인딩 시킨 후, 
+파라미터를 적용하여 helm chart를 업그레이드 해주니 log가 정상적으로 표시되는 것을 확인할 수 있었습니다.
+- [Airflow Helm Parameters reference](https://airflow.apache.org/docs/helm-chart/stable/parameters-ref.html)
+
+logs.persistence 성공적으로 구성한 방법은 다음과 같습니다.
 
 **1) pvc 바인딩**
 
