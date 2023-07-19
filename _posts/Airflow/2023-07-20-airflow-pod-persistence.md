@@ -1,7 +1,7 @@
 ---
 published: true
 layout: single
-title: "[Airflow] KubernetesExecutor의 Log Persistency 및 ExtraVolume 적용"
+title: "[Airflow] KubernetesExecutor의 Log Persistence 및 ExtraVolume 적용"
 category: airflow
 tags:
 comments: true
