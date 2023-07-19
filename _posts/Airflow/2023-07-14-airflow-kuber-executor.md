@@ -43,7 +43,7 @@ env: []
 
 <br>
 
-파일을 수정했으면 수정된 파일을 EKS에 적용시켜줍니다. 이전에 네임스페이스를 airflow로 생성해줬기 때문에 배포할 네임스페이스도 airflow로 지정해주어야합니다.
+파일을 수정했으면 수정된 파일을 upgrade command를 사용하여 적용시켜줍니다. 이전에 네임스페이스를 airflow로 생성해줬기 때문에 배포할 네임스페이스도 airflow로 지정해주어야합니다.
 
 ```
 $ helm upgrade --install airflow apache-airflow/airflow -n airflow -f values.yaml --debug
