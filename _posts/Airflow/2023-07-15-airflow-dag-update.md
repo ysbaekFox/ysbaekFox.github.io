@@ -42,7 +42,7 @@ kubectl create secret generic airflow-ssh-secret \
 <summary>변경한 value.yaml 예시 - 펼치기 </summary>
 <div markdown="1">
 
-```
+```yaml
 # Git sync
 dags:
   persistence:
@@ -128,7 +128,7 @@ dags:
     # Mount additional volumes into git-sync. It can be templated like in the following example:
     #   extraVolumeMounts:
     #     - name: my-templated-extra-volume
-    #       mountPath: "{{ .Values.my_custom_path }}"
+    #       mountPath: path
     #       readOnly: true
     extraVolumeMounts: []
     env: []
