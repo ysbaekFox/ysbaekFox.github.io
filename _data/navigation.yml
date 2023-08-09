@@ -16,6 +16,11 @@ mainMenu:
       - title: "Effective Python 2nd"
         url: /categories/effectivepy
         category: effectivepy
+    - title: Linux
+      children:
+      - title: Network
+        url: /categories/linux-network
+        category: linux-network
     - title: Data Engineering
       children:
       - title: Kubernetes
