@@ -16,16 +16,26 @@ mainMenu:
       - title: "Effective Python 2nd"
         url: /categories/effectivepy
         category: effectivepy
+    - title: Go
+      children:
+      - title: "Go-Lang"
+        url: /categories/golang
+        category: golang
     - title: Linux
       children:
       - title: Network
         url: /categories/linux-network
         category: linux-network
-    - title: Data Engineering
+    - title: Infra
       children:
+      - title: Docker
+        url: /categories/docker
+        category: docker
       - title: Kubernetes
         url: /categories/k8s
         category: k8s
+    - title: Data Engineering
+      children:
       - title: Airflow
         url: /categories/airflow
         category: airflow
